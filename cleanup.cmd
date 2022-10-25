@@ -18,4 +18,5 @@ net start wuauserv /y
 net start BITS /y
 net start cryptsvc /y
 for /F "tokens=*" %1 in ('wevtutil.exe el') DO wevtutil.exe cl "%1"
-ForFiles /p "C:\Windows\System32\winevt\Logs" /s /d -30 /c "cmd /c del /Q @file"
+ForFiles /p "C:\Windows\System32\winevt\Logs" /s /d -7 /c "cmd /c del /Q @file"
+ForFiles /p "C:\inetpub\logs" /s /d -7 /c "cmd /c del /Q @file"
