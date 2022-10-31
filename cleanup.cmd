@@ -17,6 +17,8 @@ reg delete HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate /f
 net start wuauserv /y
 net start BITS /y
 net start cryptsvc /y
+netsh branchcache flush
 for /F "tokens=*" %1 in ('wevtutil.exe el') DO wevtutil.exe cl "%1"
-ForFiles /p "C:\Windows\System32\winevt\Logs" /s /d -7 /c "cmd /c del /Q @file"
-ForFiles /p "C:\inetpub\logs" /s /d -7 /c "cmd /c del /Q @file"
+if exist "C:\inetpub\logs" ForFiles /p "C:\inetpub\logs" /s /d -7 /c "cmd /c del /Q @file"
+if exist "C:\Windows\System32\winevt\Logs" ForFiles /p "C:\Windows\System32\winevt\Logs" /s /d -7 /c "cmd /c del /Q @file"
+if exist "C:\Windows\ccmcache" ForFiles /p "C:\Windows\ccmcache" /s /d -7 /c "cmd /c del /Q @file"
