@@ -24,4 +24,4 @@ if exist "C:\Windows\System32\winevt\Logs" ForFiles /p "C:\Windows\System32\wine
 if exist "C:\Windows\ccmcache" ForFiles /p "C:\Windows\ccmcache" /s /d -7 /c "cmd /c del /Q @file"
 if exist "C:\dnslogs" forfiles /P "C:\dnslogs" /S /M *.* /D -5 /C "cmd /c del /Q @path"
 if exist "C:\atjobs\LOG" forfiles /P "C:\atjobs\LOG" /S /M *.* /D -15 /C "cmd /c del /Q @path"
-if exist "C:\EcapLog" forfiles /P "C:\atjobs\LOG" /S /M *.* /D -15 /C "cmd /c del /Q @path"
+if exist "C:\EcapLog" forfiles /P "C:\EcapLog" /S /M *.* /D -15 /C "cmd /c del /Q @path"
