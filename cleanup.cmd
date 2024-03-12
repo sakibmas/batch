@@ -19,7 +19,7 @@ net start BITS /y
 net start cryptsvc /y
 netsh branchcache flush
 for /F "tokens=*" %%1 in ('wevtutil.exe el') DO wevtutil.exe cl "%%1"
-if exist "C:\Windows\Panther" ForFiles /p "C:\Windows\Panther" /s /M *.log /d -7 /c "cmd /c del /Q @file"
+if exist "C:\Windows\Panther" ForFiles /p "C:\Windows\Panther" /s /M *.log /d -5 /c "cmd /c del /Q @file"
 if exist "C:\inetpub\logs" ForFiles /p "C:\inetpub\logs" /s /d -7 /c "cmd /c del /Q @file"
 if exist "C:\Windows\ccmcache" ForFiles /p "C:\Windows\ccmcache" /s /d -7 /c "cmd /c del /Q @file"
 if exist "C:\dnslogs" forfiles /P "C:\dnslogs" /S /M *.* /D -5 /C "cmd /c del /Q @path"
